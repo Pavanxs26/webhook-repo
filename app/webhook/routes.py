@@ -49,10 +49,10 @@ def receiver():
     collection.insert_one(event)
     return jsonify({"message": "Success"}), 200
 
-# UI Route (Added for local viewing)
-@webhook.route('/ui')
-def index():
-    return render_template("index.html")
+# # UI Route (Added for local viewing)
+# @webhook.route('/ui')
+# def index():
+#     return render_template("index.html")
 
 @webhook.route('/receiver_data')
 def get_data():

@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, render_template
 from app.webhook.routes import webhook
 
 def create_app():
@@ -9,6 +9,6 @@ def create_app():
 
     app.route('/')
     def index():
-        return redirect('/webhook/ui')
+        return render_template("index.html")
     
     return app
