@@ -28,7 +28,7 @@ def receiver():
 
     if event_type == "push":
         event["action"] = "PUSH"
-        event["request_id"] = payload.get("after") # Commit hash
+        event["request_id"] = payload.get("after")
         event["author"] = payload["pusher"]["name"]
         event["to_branch"] = payload.get("ref", "").split('/')[-1]
         
@@ -49,10 +49,6 @@ def receiver():
     collection.insert_one(event)
     return jsonify({"message": "Success"}), 200
 
-# # UI Route (Added for local viewing)
-# @webhook.route('/ui')
-# def index():
-#     return render_template("index.html")
 
 @webhook.route('/receiver_data')
 def get_data():
